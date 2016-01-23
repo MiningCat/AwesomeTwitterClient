@@ -34,7 +34,7 @@ namespace TwitterClient.Streaming
                 {
                     try
                     {
-                        await _listener.Listen(requestProvider, content => observer.OnNext(content));
+                        await _listener.Listen(requestProvider, observer.OnNext);
                     }
                     catch (Exception exception)
                     {

@@ -14,9 +14,9 @@ namespace TwitterClient.Streaming
         public Listener(IStreamingUtils streamingUtils, IHttpUtils httpUtils)
         {
             if (streamingUtils == null)
-                throw new ArgumentNullException("streamingUtils");
+                throw new ArgumentNullException(nameof(streamingUtils));
             if (httpUtils == null)
-                throw new ArgumentNullException("httpUtils");
+                throw new ArgumentNullException(nameof(httpUtils));
 
             _streamingUtils = streamingUtils;
             _httpUtils = httpUtils;
@@ -29,15 +29,13 @@ namespace TwitterClient.Streaming
             if (processRequest == null)
                 throw new ArgumentNullException(nameof(processRequest));
 
-            using (var request = requestProvider())
-            {
-                var streamReader = await _streamingUtils.GetReader(request).ConfigureAwait(false);
+            var request = requestProvider();
+            var streamReader = await _streamingUtils.GetReader(request).ConfigureAwait(false);
 
-                while (!streamReader.EndOfStream)
-                {
-                    var json = await streamReader.ReadLineAsync();
-                    processRequest(_httpUtils.UnescapeUnicode(json));
-                }
+            while (!streamReader.EndOfStream)
+            {
+                var json = await streamReader.ReadLineAsync();
+                processRequest(_httpUtils.UnescapeUnicode(json));
             }
         }
     }

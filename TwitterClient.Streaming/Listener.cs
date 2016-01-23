@@ -40,26 +40,5 @@ namespace TwitterClient.Streaming
                 }
             }
         }
-
-        //TODO: Найти способ слить эти методы
-        public async Task Listen(Func<HttpRequestMessage> requestProvider, Func<string, Task> processRequest)
-        {
-            if (requestProvider == null)
-                throw new ArgumentNullException(nameof(requestProvider));
-            if (processRequest == null)
-                throw new ArgumentNullException(nameof(processRequest));
-
-            using (var request = requestProvider())
-            {
-
-                var streamReader = await _streamingUtils.GetReader(request).ConfigureAwait(false);
-
-                while (!streamReader.EndOfStream)
-                {
-                    var json = await streamReader.ReadLineAsync();
-                    await processRequest(_httpUtils.UnescapeUnicode(json)).ConfigureAwait(false);
-                }
-            }
-        }
     }
 }

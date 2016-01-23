@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using Ploeh.AutoFixture.Idioms;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using TwitterClient.Streaming.Filter;
-using Xunit.Extensions;
+using Xunit;
 
 namespace TwitterClient.Streaming.Tests.Filter
 {

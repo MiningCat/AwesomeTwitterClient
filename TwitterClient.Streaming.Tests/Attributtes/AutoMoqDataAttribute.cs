@@ -1,6 +1,6 @@
 ﻿using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.AutoMoq;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 
 namespace TwitterClient.Streaming.Tests.Attributtes
 {

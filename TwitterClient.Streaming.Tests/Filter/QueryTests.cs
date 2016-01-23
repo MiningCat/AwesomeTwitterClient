@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using FluentAssertions;
 using Moq;
-using Ploeh.AutoFixture.Idioms;
-using Ploeh.AutoFixture.Xunit;
 using TwitterClient.Core;
 using TwitterClient.Core.Facade;
 using TwitterClient.Streaming.Exceptions;
 using TwitterClient.Streaming.Filter;
 using Xunit;
-using Xunit.Extensions;
+using Ploeh.AutoFixture.Xunit2;
 
 namespace TwitterClient.Streaming.Tests.Filter
 {

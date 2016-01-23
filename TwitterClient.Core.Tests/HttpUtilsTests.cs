@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Ploeh.AutoFixture.Idioms;
-using Ploeh.AutoFixture.Xunit;
-using Xunit.Extensions;
+using Xunit;
+using Ploeh.AutoFixture.Xunit2;
 
 namespace TwitterClient.Core.Tests
 {
@@ -70,7 +70,7 @@ namespace TwitterClient.Core.Tests
         [Theory, AutoData]
         public void GetParametersString_AnonymousData_CorrectString(List<KeyValuePair<string, string>> parameters, HttpUtils sut)
         {
-            var expectedValue = string.Concat(parameters.OrderBy(a => a.Key).Select(a => string.Format("{0}={1}", a.Key, a.Value)));
+            var expectedValue = string.Concat(parameters.OrderBy(a => a.Key).Select(a => $"{a.Key}={a.Value}"));
 
             var result = sut.GetParametersString(parameters);
 
@@ -87,7 +87,7 @@ namespace TwitterClient.Core.Tests
                 new KeyValuePair<string, string>("a", firstParameter),
                 new KeyValuePair<string, string>("a", secondParameter),
             };
-            var expectedValue = string.Format("{0}={1}&{2}={3}", parameters[0].Key, parameters[0].Value, parameters[1].Key, parameters[1].Value);
+            var expectedValue = $"{parameters[0].Key}={parameters[0].Value}&{parameters[1].Key}={parameters[1].Value}";
 
             var result = sut.GetParametersString(parameters, "&");
 

@@ -1,6 +1,6 @@
 ﻿using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.AutoMoq;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using TwitterClient.Core.Tests.Customizations;
 
 namespace TwitterClient.Core.Tests.Attributtes

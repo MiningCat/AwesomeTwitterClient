@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using Xunit.Extensions;
+using Xunit.Sdk;
 
 namespace TwitterClient.Core.Tests.Attributtes
 {

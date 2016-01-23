@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using FluentAssertions;
 using Ploeh.AutoFixture.Idioms;
-using Ploeh.AutoFixture.Xunit;
 using TwitterClient.Streaming.Filter;
-using Xunit.Extensions;
+using Xunit;
+using Ploeh.AutoFixture.Xunit2;
 
 namespace TwitterClient.Streaming.Tests.Filter
 {

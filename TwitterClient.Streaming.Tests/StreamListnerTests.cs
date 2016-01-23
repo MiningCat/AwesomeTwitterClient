@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using TwitterClient.Streaming.Facade;
 using TwitterClient.Streaming.Tests.Attributtes;
-using Xunit.Extensions;
+using Xunit;
 
 namespace TwitterClient.Streaming.Tests
 {

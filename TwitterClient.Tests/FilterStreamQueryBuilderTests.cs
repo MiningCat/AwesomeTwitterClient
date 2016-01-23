@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using FluentAssertions;
 using Ploeh.AutoFixture.Idioms;
-using Ploeh.AutoFixture.Xunit;
+using Ploeh.AutoFixture.Xunit2;
 using TwitterClient.Core;
-using TwitterClient.Streaming.Facade;
 using TwitterClient.Streaming.Filter;
 using TwitterClient.Tests.Attributtes;
-using Xunit.Extensions;
+using Xunit;
 
 namespace TwitterClient.Tests
 {
@@ -35,7 +30,7 @@ namespace TwitterClient.Tests
 
         [Theory, AutoMoqData]
         public void FilterByTrack_AnonymousDataNotEmptyQuery_CorrectQuery(string[] keyWords, 
-            [Frozen(As = typeof(IFilterQuery))]Query query,
+            [Frozen(Matching.ImplementedInterfaces)]Query query,
             FilterStreamQueryBuilder sut)
         {
             var oldValue = query.Track.ToList();
@@ -59,7 +54,7 @@ namespace TwitterClient.Tests
 
         [Theory, AutoMoqData]
         public void FilterByFollowers_AnonymousDataNotEmptyQuery_CorrectQuery(long[] folowwers,
-            [Frozen(As = typeof(IFilterQuery))]Query query,
+            [Frozen(Matching.ImplementedInterfaces)]Query query,
             FilterStreamQueryBuilder sut)
         {
             var oldValue = query.Follow.ToList();
@@ -82,7 +77,7 @@ namespace TwitterClient.Tests
 
         [Theory, AutoMoqData]
         public void FilterByLocations_AnonymousDataNotEmptyQuery_CorrectQuery(Locations location,
-            [Frozen(As = typeof(IFilterQuery))]Query query,
+            [Frozen(Matching.ImplementedInterfaces)]Query query,
             FilterStreamQueryBuilder sut)
         {
             var oldValue = query.Locations;
@@ -104,7 +99,7 @@ namespace TwitterClient.Tests
 
         [Theory, AutoMoqData]
         public void FilterByLocationsBox_AnonymousDataNotEmptyQuery_CorrectQuery(Box box,
-            [Frozen(As = typeof(IFilterQuery))]Query query,
+            [Frozen(Matching.ImplementedInterfaces)]Query query,
             FilterStreamQueryBuilder sut)
         {
             var oldValue = query.Locations;
